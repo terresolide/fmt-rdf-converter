@@ -1,0 +1,32 @@
+{
+  "name": "terresolide/php-reader",
+  "description": "Tools to manipulate rdf and skos",
+  "type": "project",
+  "license": "MIT",
+  "config": {
+      "vendor-dir": "vendor",
+      "bin-dir": "bin/vendor",
+      "component-dir": "web/component/vendor",
+      "optimize-autoloader": true,
+      "preferred-install": "source"
+  },
+  "require": {
+    "easyrdf/easyrdf": "0.10.0-alpha.1"
+  },
+  "require-dev": {
+      "phpunit/phpunit": "~4.7",
+      "twig/twig": "~2.0"
+   },
+  "autoload": {
+      "psr-4": {
+    	  "Core\\": "Core/",
+    	  "App\\": "App/"
+      }
+  },
+  "autoload-dev": {
+      "psr-4": {
+    	  "Core\\": "Core/",
+    	  "App\\": "App/"
+      }
+  }
+}
