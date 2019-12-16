@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Convertisseur{% endblock %}
+
+{% block body %}
+
+    <h1>Convertisseur de thesaurus</h1>
+    {% if error is not null %}
+    <div class="error">
+    {{error | raw}}
+    </div>
+    {% endif %}
+    <form action="/convert/" method="post" enctype="multipart/form-data">
+      <input name="hidden" type="hidden" value="truc" />
+      <div>
+        <label for="file">Le(s) fichier(s) à convertir</label>
+        <input name="file[]" type="file" id="file" multiple/>
+      </div>
+      <div>
+        <label for="thesaurusName">Le nom du thesaurus</label>
+        <input name="thesaurusName" type="text" placeholder="ForM@Ter | Solid Earth variable ontology"/>
+      </div>
+       <div>
+        <label for="thesaurusDescription">Description</label>
+        <textarea name="thesaurusDescription"  placeholder="Solid Earth products" rows="4" cols="60"></textarea>
+      </div>
+      <div>
+        <label for="type">Type de fichier</label>
+        <select name="type">
+          <option value="csv2" >csv pour skosplay</option>
+          <option value="csv" >csv gcmd</option>
+          <option value="rdf" >rdf skos</option>
+        </select>
+      </div>
+      <div>
+        <label for="type">Convertir en</label>
+        <select name="out">
+          <option value="out_csv" >csv gcmd</option>
+          <option value="out_rdf" >rdf skos</option>
+          <option value="out_csv2" >csv pour skosplay </option>
+        </select>
+      </div>
+      <div style="margin-top:20px;">
+      <label></label>
+      <input name="convert" type="submit" value="Convertir" />
+      </div>
+    </form>
+
+{% endblock %}
